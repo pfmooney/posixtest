@@ -1,0 +1,6 @@
+*.o
+*.test
+/logfile
+/logfile.*
+/t0
+/t0.val
