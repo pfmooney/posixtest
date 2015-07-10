@@ -30,7 +30,7 @@
 
 int main() {
 	sem_t *mysemp;
-	char semname[20];
+	char semname[50];
 	int value = 10;
 	int val;
 
