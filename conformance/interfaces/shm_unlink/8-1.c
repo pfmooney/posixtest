@@ -87,7 +87,10 @@ int main() {
 		return PTS_UNRESOLVED;
 	}
 		
-	seteuid(getuid());
+	if(seteuid(getuid()) != 0) {
+		perror("An error occurs when calling seteuid()");
+		return PTS_UNRESOLVED;	
+	}
 	
 	if(fstat(fd, &stat_after) != 0) {
 		perror("An error occurs when calling fstat()");

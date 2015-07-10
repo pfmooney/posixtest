@@ -117,6 +117,9 @@ void * overflow(void * arg)
 	
 	if (arg == NULL)
 	{
+		/* prevent compiler from grousing about unread variables */
+		current = pad[1];
+
 		/* first call */
 		current = overflow(&current);
 		

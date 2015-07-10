@@ -133,7 +133,9 @@ void * overflow(void * arg)
 		do { ret = sem_wait(&semsync[0]); }
 		while ((ret == -1) && (errno == EINTR));
 		if (ret == -1)  {  UNRESOLVED(errno, "Failed to wait for the semaphore");  }
-		
+
+		/* prevent compiler from grousing about unread variables */
+		current = pad[1];
 		
 		/* Go to recursion */
 		current = overflow(&current);

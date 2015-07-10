@@ -30,6 +30,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <aio.h>
+#include <fcntl.h>
 
 #include "posixtest.h"
 
@@ -46,7 +47,6 @@ int main()
 	int i;
 	struct aiocb aiocbs[NUM_AIOCBS];
 	int last_req;
-	int err;
 	int ret;
 
 #if _POSIX_ASYNCHRONOUS_IO != 200112L
@@ -91,9 +91,7 @@ int main()
 
 	for (i=0; i<last_req-1; i++)
 	{
-		err = aio_error(&aiocbs[i]);
 		ret = aio_return(&aiocbs[i]);
-
 	}
 
 	if (last_req == NUM_AIOCBS)

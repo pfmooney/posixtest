@@ -144,7 +144,10 @@ int main(){
 		return PTS_UNRESOLVED;
         }
 
-	pipe(the_pipe);
+	if (pipe(the_pipe) != 0) {
+		perror("An error occurs when calling pipe()");
+		return PTS_UNRESOLVED;
+	}
 
 	for(i=0; i<nb_child; i++) {
 		child_pid[i] = fork();

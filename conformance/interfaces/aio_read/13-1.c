@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <aio.h>
+#include <stdlib.h>
 
 #include "posixtest.h"
 

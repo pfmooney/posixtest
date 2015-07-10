@@ -30,6 +30,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <aio.h>
+#include <signal.h>
 
 #include "posixtest.h"
 

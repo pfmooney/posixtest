@@ -29,6 +29,8 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <aio.h>
+#include <signal.h>
+#include <fcntl.h>
 
 #include "posixtest.h"
 

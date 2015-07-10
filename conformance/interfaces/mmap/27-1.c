@@ -31,7 +31,6 @@
 int main()
 {
   char tmpfname[256];
-  char* data;
   int total_size = 1024; 
 
   void *pa = NULL; 
@@ -61,7 +60,6 @@ int main()
   exit(PTS_UNTESTED);
 #endif
 
-  data = (char *) malloc(total_size); 
   snprintf(tmpfname, sizeof(tmpfname), "/tmp/pts_mmap_27_1_%d",
            getpid());
   unlink(tmpfname);

@@ -52,7 +52,10 @@ int main()
 	/*
 	 * EPERM
 	 */
-	setuid(1); /* this is added incase user is root. If user is normal user, then it has no effect on the tests*/
+	if (getuid() == 0 && setuid(1) != 0) {
+		perror("setuid() failed");
+		return PTS_UNRESOLVED;
+	}
 
 	if (-1 == kill(1, 0)) {
 		if (EPERM == errno) {

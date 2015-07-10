@@ -138,7 +138,7 @@ void output( char * string, ... )
 	now = localtime( &nw );
 
 	if ( now == NULL )
-		printf( ts );
+		printf("%s", ts);
 	else
 		printf( "[%2.2d:%2.2d:%2.2d]", now->tm_hour, now->tm_min, now->tm_sec );
 

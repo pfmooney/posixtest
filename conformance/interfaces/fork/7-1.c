@@ -102,7 +102,7 @@ void read_catalog( nl_catd cat, char * who )
 		{
 			msg = catgets( cat, i, j, "not found" );
 
-			if ( errno != 0 )
+			if ( msg == NULL || errno != 0 )
 			{
 				UNRESOLVED( errno, "catgets returned an error" );
 			}
@@ -204,7 +204,9 @@ int main( int argc, char * argv[] )
 	}
 
 	/* Try removing the message catalog file */
-	system( "rm -f mess.cat" );
+	if (system( "rm -f mess.cat" ) != 0) {
+		output( "Could not clean up message catalog.\n");
+	}
 
 	/* Test passed */
 #if VERBOSE > 0
